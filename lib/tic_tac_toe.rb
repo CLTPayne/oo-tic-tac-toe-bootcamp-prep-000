@@ -42,6 +42,10 @@ class TicTacToe
       @board.count{|token| token == "X" || token == "O"}
     end
     
+    def current_player
+      turn_count % 2 == 0 ? "X" : "O"
+    end 
+    
     def turn 
       puts "Please enter 1-9:"
       user_input = gets.strip
@@ -54,10 +58,6 @@ class TicTacToe
       end
        display_board
     end
-    
-    def current_player
-      turn_count % 2 == 0 ? "X" : "O"
-    end 
     
     def won? 
       WIN_COMBINATIONS.detect do |combo|
